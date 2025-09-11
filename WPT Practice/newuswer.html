@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New user Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        #head1 {
+            font-family: "Montserrat";
+            text-align: center;
+            color: white;
+        }
+
+        #myf {
+            font-family: "Montserrat";
+            font-weight: 400;
+            text-align: center;
+            color: white;
+
+        }
+
+        #but {
+            font-family: "Montserrat";
+            font-weight: bold;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        #but:hover
+        {
+            background-color: rgba(9, 44, 5, 0.822);
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body bgcolor="#556b2f">
+    <h1 id="head1"> <u>Please Register As A New User</u></h1>
+
+    <form id="myf" method="get" action="">
+        <label for="fname">First name</label><br>
+        <input type="text" id="fname" name="fname" value=""><br>
+        <label for="lname">Last name</label><br>
+        <input type="text" id="lname" name="lname" value=""><br>
+        <label for="pnum">Phone number</label><br>
+        <input type="phone" id="pnum" name="pnum" value=""><br>
+        <label for="email">Email</label><br>
+        <input type="email" id="email" name="email" value=""><br>
+        <label for="pword">New Password</label><br>
+        <input type="password" id="pword" name="pword" value=""><br>
+        <label for="pword">Retype Password</label><br>
+        <input type="password" id="pword" name="pword" value=""><br>
+        <br><input id="but" type="submit" value="Login"> <br>
+    </form>
+
+</body>
+
+</html>
