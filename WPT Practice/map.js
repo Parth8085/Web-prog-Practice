@@ -7,4 +7,4 @@ console.log("Square Array" +sqrarr)
 
 let arr2=["green","black","yellow","white"]
 console.log(arr2.map(ele=>ele.substring(0,2).toUpperCase()));
-console.log(arr2.map(ele=>ele.substring(2,3).toLowerCase()))
+console.log(arr2.map(ele=>ele.substring(2,3).toLowerCase()));
