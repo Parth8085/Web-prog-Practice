@@ -28,31 +28,118 @@
             padding-left: 30px;
             padding-right: 30px;
         }
-        #but:hover
-        {
+
+        #but:hover {
             background-color: rgba(9, 44, 5, 0.822);
             color: white;
             cursor: pointer;
         }
+        @keyframes blink
+        {
+            70%
+            {
+                opacity: 0;
+            }
+        }
+
+        .errormessage {
+
+            visibility: hidden;
+            color: red;
+            font-size: small;
+            animation: blink 1s linear infinite;
+
+
+        }
     </style>
+
+    <script>
+        function val() {
+
+            console.log("here")
+            var name = document.forms["f1"]["fname"].value
+            var lname = document.forms["f1"]["lname"].value
+            var phone = document.forms["f1"]["pnum"].value
+            var email = document.forms["f1"]["email"].value
+            var password = document.forms["f1"]["pword"].value
+            var password1 = document.forms["f1"]["pword1"].value
+
+            console.log(name, lname, phone, email, password, password1)
+
+
+            if (name.trim() == "") {
+                document.getElementsByClassName("errormessage")[0].style.visibility = 'visible'
+            }
+            else
+                document.getElementsByClassName("errormessage")[0].style.visibility = 'hidden'
+            
+            if (lname.trim() == "") {
+                document.getElementsByClassName("errormessage")[1].style.visibility = 'visible'
+            }
+            else
+                document.getElementsByClassName("errormessage")[1].style.visibility = 'hidden'
+            
+            if (phone.trim() == "") {
+                document.getElementsByClassName("errormessage")[2].style.visibility = 'visible'
+            }
+            else
+                document.getElementsByClassName("errormessage")[2].style.visibility = 'hidden'
+            
+            if (email.trim() == "") {
+                document.getElementsByClassName("errormessage")[3].style.visibility = 'visible'
+            }
+            else
+                document.getElementsByClassName("errormessage")[3].style.visibility = 'hidden'
+            
+            if (password.trim() == "") {
+                document.getElementsByClassName("errormessage")[4].style.visibility = 'visible'
+            }
+            else
+                document.getElementsByClassName("errormessage")[4].style.visibility = 'hidden'
+            
+            if (password1.trim() == "") {
+                document.getElementsByClassName("errormessage")[5].style.visibility = 'visible'
+            }
+            else
+                document.getElementsByClassName("errormessage")[5].style.visibility = 'hidden'
+
+
+
+
+        }
+
+
+    </script>
 </head>
 
 <body bgcolor="#556b2f">
     <h1 id="head1"> <u>Please Register As A New User</u></h1>
 
-    <form id="myf" method="get" action="">
-        <label for="fname">First name</label><br>
-        <input type="text" id="fname" name="fname" value=""><br>
+    <form name="f1" class=" " onclick="return val()" id="myf" method="post" action="">
+        First name</label><br>
+        <input type="text" name="fname" value="" placeholder="First Name"><br>
+        <p class="errormessage">*First Name must be given</p>
+
         <label for="lname">Last name</label><br>
-        <input type="text" id="lname" name="lname" value=""><br>
+        <input type="text" name="lname" value="" placeholder="Last Name"><br>
+        <p class="errormessage">*Last name must be given</p>
+
         <label for="pnum">Phone number</label><br>
-        <input type="phone" id="pnum" name="pnum" value=""><br>
+        <input type="phone" name="pnum" value="" placeholder="Phone number"><br>
+        <p class="errormessage">*This field is required</p>
+
         <label for="email">Email</label><br>
-        <input type="email" id="email" name="email" value=""><br>
+        <input type="email" name="email" value=""placeholder="Email"><br>
+        <p class="errormessage">*This field is required</p>
+
         <label for="pword">New Password</label><br>
-        <input type="password" id="pword" name="pword" value=""><br>
+        <input type="password" name="pword" value=""placeholder="Enter Password"><br>
+        <p class="errormessage">*This field is required</p>
+
         <label for="pword">Retype Password</label><br>
-        <input type="password" id="pword" name="pword" value=""><br>
+        <input type="password" name="pword1" value=""placeholder="Re-enter Password"><br>
+        <p class="errormessage">*This field is required</p>
+
         <br><input id="but" type="submit" value="Login"> <br>
     </form>
 
