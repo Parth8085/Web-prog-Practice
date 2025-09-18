@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My JQuery Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#p1").click(function () {
+                alert("!!!");
+            });
+        });
+
+        $(document).ready(function () {
+            $("#p2").click(function () {
+                $(this).hide()
+            }
+            )
+        })
+        $(document).ready(function () {
+            $("#b0").click(function () {
+                $("#d1").fadeToggle(3000)
+            })
+        })
+
+        $(document).ready(function () {
+            $("#b0").click(function () {
+                $("#d2").fadeToggle(3000)
+
+            })
+        })
+
+        $(document).ready(function () {
+            $("#d3").click(function () {
+                $("#d4").slideToggle()
+            })
+        })
+        $(document).ready(function () {
+            $("#d4").click(function () {
+                $("#d5").slideToggle()
+            })
+        })
+        $(document).ready(function () {
+            $("#d5").click(function () {
+                $("#d6").slideToggle()
+            })
+        })
+        $(document).ready(function () {
+            $("#b1").click(function () {
+                $("#d3").fadeToggle()
+
+            })
+        })
+        $(document).ready(function () {
+            $("#b2").click(function () {
+                $("#d6").animate({
+                    // height:'400px',
+                    width: '300px',
+                    opacity: '0.9',
+                    left: '500px',
+
+
+                })
+
+            })
+        })
+        $(document).ready(function () {
+            $("#b2").click(function () {
+                var $quote = $("#p4")
+                var containerwidth = $("#d6").width()
+                var quotewidth = $quote.width()
+                var count = 0;
+                function lefttoright() {
+                    $quote.css({ left: -quotewidth })
+                    $quote.animate({ left: containerwidth }, 5000, function () {
+                        count++
+                        if (count < 4) {
+                            lefttoright()
+
+                        }
+                        else {
+                            righttoleft()
+                        }
+
+                    })
+
+
+                }
+                function righttoleft() {
+                    $quote.css({ left: containerwidth })
+                    $quote.animate({ left: -quotewidth }, 5000)
+
+
+                }
+                lefttoright()
+
+            })
+        })
+
+
+
+
+
+
+    </script>
+    <style>
+        #d1 {
+            border: solid;
+            background-color: black;
+            height: 50px;
+            width: 50px;
+            display: none;
+        }
+
+        #d2 {
+            border: solid;
+            background-color: #A8FBD3;
+            height: 50px;
+            width: 50px;
+            display: none;
+
+        }
+
+        #d3 {
+            background: #A8FBD3;
+            border: solid black 1px;
+            text-align: center;
+            display: none;
+        }
+
+        #d4 {
+            background: #19183B;
+            border: solid black 1px;
+            text-align: center;
+            color: antiquewhite;
+            display: none;
+        }
+
+        #d5 {
+            background: #708993;
+            border: solid black 1px;
+            text-align: center;
+            color: antiquewhite;
+            display: none;
+
+        }
+
+        #d6 {
+            border: solid black 1px;
+            background-color: #556B2F;
+            height: 50px;
+            width: 400px;
+            position: relative;
+            white-space: nowrap;
+            overflow: hidden;
+            /* display: none; */
+            text-align: center;
+            display: none;
+        }
+
+        #p4 {
+            position: absolute;
+            color: aliceblue;
+
+        }
+    </style>
+
+
+
+
+
+</head>
+
+<body style="margin: 0;">
+    <div>
+
+        <div id="d3">
+            <p>Hello Please click to slide down the below window</p>
+
+        </div>
+        <div id="d4">
+            <p>Hello thanks for sliding</p>
+
+        </div>
+        <div id="d5">
+            <p>Hello thanks for sliding 2 iteration</p>
+
+        </div>
+
+    </div>
+
+    <div id="d6">
+        <p id="p4">
+            Hello Everyone this is running div element
+
+
+        </p>
+    </div> <br> <br> <br>
+
+    <p id="p1">Click me to generate alert</p>
+    <p id="p2"> Click to hide</p>
+    <p id="p3">Click to fade</p>
+
+    <div id="d1">
+
+    </div> <br> <br> <br>
+
+    <div id="d2">
+
+
+    </div> <br> <br> <br>
+
+
+
+
+
+
+    <button id="b0">Click me to display</button> <br> <br> <br>
+    <button id="b1">Click me to display navbar</button> <br> <br> <br>
+    <button id="b2">Click me to display animate</button> <br> <br> <br>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

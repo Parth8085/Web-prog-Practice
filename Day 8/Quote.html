@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basic Quote Scroller</title>
+  <style>
+    #container {
+      position: relative;
+      width: 400px;
+      height: 50px;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+    #quote {
+      position: absolute;
+      white-space: nowrap;
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      color: darkblue;
+      top: 10px;
+      left: 0;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<div id="container">
+  <div id="quote">"Be yourself; everyone else is already taken." — Oscar Wilde</div>
+</div>
+
+<button id="startBtn">Start</button>
+
+
+
+
+
+
+
+
+
+
+<script>
+$(document).ready(function(){
+  $("#startBtn").click(function(){
+    var $quote = $("#quote");
+    var containerWidth = $("#container").width();
+    var quoteWidth = $quote.width();
+    var count = 0;
+
+    
+    
+    
+    
+    function scrollLeftToRight(){
+      $quote.css({left: -quoteWidth}); // start off-screen left
+      $quote.animate({left: containerWidth}, 7000, function(){
+        count++;
+        if(count < 4){
+          scrollLeftToRight(); // repeat 4 times
+        } else {
+          scrollRightToLeft();
+        }
+      });
+    }
+
+    
+    function scrollRightToLeft(){
+      $quote.css({left: containerWidth}); // start off-screen right
+      $quote.animate({left: -quoteWidth}, 7000);
+    }
+
+    
+    
+    scrollLeftToRight();
+  });
+});
+</script>
+
+</body>
+</html>
