@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #sqr {
+            height: 50px;
+            width: 50px;
+            background-color: black;
+            position: absolute;
+        }
+
+        #container {
+            height: 550px;
+            width: 550px;
+            background-color: rgba(24, 129, 89, 0.527);
+            position: relative;
+        }
+    </style>
+</head>
+
+<body bgcolor="grey">
+    <button onclick="myMove()"> Click to move</button>
+
+    <p>Moving a div</p><br>
+
+    <div id="container">
+
+        <div id="sqr"></div>
+
+    </div>
+
+    <script>
+        function myMove() {
+            let id = null;
+            const elem = document.getElementById("sqr");
+            let pos = 0;
+            
+            clearInterval(id)
+            id = setInterval(frame, 10)
+
+            function frame() {
+                if (pos == 500) {
+                    clearInterval(id);
+                }
+                else {
+                    pos++;
+                    elem.style.top = pos + "px"
+                    elem.style.left = pos + "px"
+                }
+
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>
