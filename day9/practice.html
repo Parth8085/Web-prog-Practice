@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Question</title>
+
+    <style>
+        #d2 {
+            border: dotted black 1px;
+            height: 100px;
+            width: 300px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Practice question to fetch data using AJAX</h1>
+
+    <button id="btn1" type="button"> Click to add data</button> <br><br><br><br>
+    <div id="d2">
+
+
+    </div>
+
+    <script>
+
+        document.getElementById("btn1").addEventListener("click", function () {
+            let y = new XMLHttpRequest()
+            y.onload=function()
+            {
+                if (status === 200) {
+                    document.getElementById("d2").innerHTML = y.responseText;
+
+                }
+                else {
+
+                    document.getElementById("d2").innerHTML = "Sorry the file is not found" + y.status
+                }
+
+            }
+            y.open("GET","new.txt",true);
+            y.send()
+
+            
+
+
+        })
+
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Adding the id and the body while clicking on the post</h1><br><br>
+    <button type="button" id="btt">Click to add posts</button> <br><br>
+
+    <table border="1" id="tt">
+        <tr>
+            <td>ID</td>
+            <td>Body</td>
+        </tr>
+
+    </table>
+
+    <script>
+        document.getElementById("btt").addEventListener("click",function()
+    {
+        let xx=new XMLHttpRequest()
+        xx.onload=function()
+        {
+            if(status==200)
+        {
+            let post=JSON.parse(xx.responseText)
+            let table=document.getElementById("tt")
+            post.forEach(post =>
+                {
+                    let row="<tr><td>" +post.id+ "</td> <td>" +post.body +"</tr></td>";
+                        
+                        table.innerHTML+=row;
+
+                }
+            )
+
+            }
+        }
+        }
+        else
+        {
+          alert("Table not found:" +xx.statusText);   
+        }
+    })
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

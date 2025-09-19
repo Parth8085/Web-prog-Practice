@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using ajax calling data from the link</title>
+    <!-- <style>
+        #t1 {
+            border: solid black 1px;
+        }
+    </style> -->
+
+
+</head>
+
+<body>
+    <button type="button" id="btn3"> Click to add posts</button> <br> <br> <br>
+
+    <table border="1" id="t1">
+        <tbody>
+            <tr>
+
+                <th>ID</th>
+                <th>Title</th>
+
+            </tr>
+
+        </tbody>
+
+
+
+
+    </table>
+
+
+
+    <script>
+
+        document.getElementById("btn3").addEventListener("click", function () {
+            // Step 1: Create XMLHttpRequest object
+            let xhr = new XMLHttpRequest();
+
+            // Step 2: What happens when data comes back
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // Convert JSON string → JavaScript array
+                    let posts = JSON.parse(xhr.responseText);
+
+                    // Target table
+                    let table = document.getElementById("t1");
+
+                    // Step 3: Loop through posts and add rows
+                    posts.forEach(post => {
+                        let row = "<tr><td>" + post.id + "</td><td>" + post.title + "</td></tr>";
+                        table.innerHTML += row;
+                    });
+                } else {
+                    alert("Error: " + xhr.status);
+                }
+            };
+
+            // Step 4: Open request (GET data from URL)
+            xhr.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
+
+            // Step 5: Send the request
+            xhr.send();
+        });
+
+    </script>
+
+</body>
+
+</html>

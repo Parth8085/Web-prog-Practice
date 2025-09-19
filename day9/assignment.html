@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 1</title>
+
+    <style>
+        #d1 {
+            border: solid black 1px;
+            height: 100px;
+            width: 300px;
+        }
+
+        /* document.getElementById("d1").innerHTML= */
+    </style>
+
+</head>
+
+<body>
+    <h1>Calling Data using AJAX in an HTML Document</h1>
+    <button id="btn" type="button" onclick="">Add Data</button> <br> <br> <br>
+    <div id="d1"></div>
+
+
+    <script>
+        document.getElementById("btn").addEventListener("click", function () {
+            let x = new XMLHttpRequest();    /*messenger created */
+            x.onload = function () {      //request sent to check wheter the text is inside the file or not  
+                if (x.status === 200) {
+                    document.getElementById("d1").innerHTML = x.responseText; 
+                }
+                else {
+                    document.getElementById("d1").innerHTML = "Error" + x.status;
+
+                }
+
+
+
+            }
+            x.open("GET", "Data.txt", true)
+            x.send()
+        })  
+    </script>
+
+
+
+
+</body>
+
+</html>
