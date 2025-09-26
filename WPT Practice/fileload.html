@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="head">Loading a new file using promise</h1>
+    <script>
+      function myDisplay(some) {
+        document.querySelector("#head").innerHTML = some;
+      }
+
+      let promise = new Promise((myResolve, myReject) => {
+        let req = new XMLHttpRequest();
+        req.open("Get", "formvalidation.html");
+        req.send();
+        req.onload = () => {
+          if (req.status === 200) {
+            myResolve(req.responseText +"File is visible");
+          } else {
+            myReject("cant open file");
+          }
+        };
+        {
+        }
+      });
+      promise
+        .then((value) => {
+          myDisplay(value);
+        })
+        .catch((error) => {
+          myDisplay(error);
+        });
+    </script>
+  </body>
+</html>

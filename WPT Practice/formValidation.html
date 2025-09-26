@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Simple Resume Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <h1>Resume Form</h1>
+
+    <form
+      id="form"
+      autocomplete="off"
+      action=""
+      onsubmit="return validateForm()"
+      method="post"
+      name="myform"
+    >
+      <!-- Name -->
+      <div class="row" id="namefield">
+        <label for="name">Full Name</label>
+        <input
+          id="fname"
+          name="fname"
+          type="text"
+          placeholder="e.g. Parth Saxena"
+        />
+        <span class="formerror"></span>
+      </div>
+
+      <!-- Email -->
+      <div class="row" id="emailfield">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="you@example.com"
+        />
+        <span class="formerror"></span>
+      </div>
+
+      <!-- Phone -->
+      <div class="row" id="phonefield">
+        <label for="phone">Phone</label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          placeholder="+91 98765 43210"
+        />
+        <span class="formerror"></span>
+      </div>
+
+      <!-- Summary -->
+      <div class="row" id="summaryfield">
+        <label for="summary">Professional Summary</label>
+        <textarea
+          id="summary"
+          name="summary"
+          rows="4"
+          placeholder="Short 1–2 line summary"
+        ></textarea>
+        <span class="formerror"></span>
+      </div>
+
+      <!-- Skills -->
+      <div class="row" id="skillfield">
+        <label>Skills</label>
+        <input type="checkbox" name="skill" value="html" /> HTML
+        <input type="checkbox" name="skill" value="css" /> CSS
+        <input type="checkbox" name="skill" value="js" /> JavaScript
+        <input type="checkbox" name="skill" value="react" /> React
+        <input type="checkbox" name="skill" value="node" /> Node.js
+        <span class="formerror"></span>
+      </div>
+
+      <!-- Experience -->
+      <div class="row" id="expfield">
+        <label for="exp">Experience</label>
+        <select id="exp" name="exp">
+          <option value="">Select</option>
+          <option value="0">Fresher</option>
+          <option value="1">1–2 years</option>
+          <option value="3">3–5 years</option>
+          <option value="6">6+ years</option>
+        </select>
+        <span class="formerror"></span>
+      </div>
+
+      <!-- Buttons -->
+      <div class="row">
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+    <script>
+      function setError(id, error) {
+        let element = document.getElementById(id);
+        element.getElementsByClassName("formerror")[0].innerHTML = error;
+        element.getElementsByClassName("formerror")[0].style.visibility =
+          "visible";
+      }
+      function validateForm() {
+        var returnval = true;
+        var name = document.forms["myform"]["fname"].value;
+        if (name.trim().length < 5) {
+          setError("namefield", "This is a required field");
+          returnval = false;
+        }
+        let email = document.forms["myform"]["email"].value;
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          setError("emailfield", "Please enter the valid email address");
+          returnval = false;
+        }
+        let phones = document.forms["myform"]["phone"].value;
+        let phoneregex = /^[0-9]$/;
+        if (!phoneregex.test(phones)) {
+          setError("phonefield", "Enter the valid number");
+          returnval = false;
+        }
+        return returnval;
+      }
+    </script>
+  </body>
+</html>

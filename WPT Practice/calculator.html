@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="calc.css" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <h1 id="head">My First Calculator</h1>
+
+    <div id="d1">
+      <div id="d2"></div>
+
+      <!-- Buttons -->
+      <button
+        class="btn"
+        onclick="currentValue+=7;
+      document.querySelector('#d2').innerText=currentValue"
+      >
+        7
+      </button>
+      <button
+        class="btn"
+        onclick="currentValue+=8;
+      document.querySelector('#d2').innerText=currentValue"
+      >
+        8
+      </button>
+      <button
+        class="btn"
+        onclick="currentValue+=9;
+      document.querySelector('#d2').innerText=currentValue"
+      >
+        9
+      </button>
+      <button class="btn">/</button>
+
+      <button
+        class="btn"
+        onclick="currentValue+=4;
+      document.querySelector('#d2').innerText=currentValue"
+      >
+        4
+      </button>
+      <button
+        class="btn"
+        onclick="currentValue+=5;
+      document.querySelector('#d2').innerText=currentValue"
+      >
+        5
+      </button>
+      <button
+        class="btn"
+        onclick="currentValue+=6;
+      document.querySelector('#d2').innerText=currentValue"
+      >
+        6
+      </button>
+      <button
+        class="btn"
+        onclick="currentValue+=' * ';
+      document.querySelector('#d2').innerText=currentValue"
+      >
+        *
+      </button>
+
+      <button
+        class="btn"
+        onclick="currentValue+=1;
+      document.querySelector('#d2').innerText=currentValue"
+      >
+        1
+      </button>
+      <button
+        class="btn"
+        onclick="currentValue+=2;
+      document.querySelector('#d2').innerText=currentValue"
+      >
+        2
+      </button>
+      <button
+        class="btn"
+        onclick="currentValue+='3';
+      document.querySelector('#d2').innerText=currentValue"
+      >
+        3
+      </button>
+      <button
+        class="btn"
+        onclick="currentValue+='-';
+      document.querySelector('#d2').innerText=currentValue"
+      >
+        -
+      </button>
+
+      <button
+        class="btn"
+        onclick="currentValue='';
+      document.querySelector('#d2').innerText=currentValue"
+      >
+        0
+      </button>
+      <button
+        class="btn"
+        onclick="currentValue+='.';
+      document.querySelector('#d2').innerText=currentValue"
+      >
+        .
+      </button>
+      <button class="btn">=</button>
+      <button
+        class="btn"
+        onclick="currentValue+=' + ';
+      document.querySelector('#d2').innerText=currentValue"
+      >
+        +
+      </button>
+    </div>
+
+    <script>
+      let currentValue = "";
+      document.querySelector("#d2").innerText = currentValue;
+    </script>
+  </body>
+</html>

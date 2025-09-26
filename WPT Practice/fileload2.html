@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="head1"></h1>
+    <script>
+      function newFunc(some) {
+        document.querySelector("#head1").innerHTML = some;
+      }
+      let apromise = new Promise((myResolve, myReject) => {
+        let req = new XMLHttpRequest();
+        req.open("Get", "formValidation.html");
+        req.send();
+        req.onload = () => {
+          if (req.status === 200) {
+            myResolve(req.responseText + "We got the file");
+          } else {
+            myReject("Sorry we can not open file");
+          }
+        };
+      });
+      apromise
+        .then((value) => {
+          newFunc(value);
+        })
+        .catch((error) => {
+          newFunc(error);
+        });
+    </script>
+  </body>
+</html>
