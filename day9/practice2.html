@@ -20,32 +20,30 @@
     </table>
 
     <script>
-        document.getElementById("btt").addEventListener("click",function()
-    {
-        let xx=new XMLHttpRequest()
-        xx.onload=function()
-        {
-            if(status==200)
-        {
-            let post=JSON.parse(xx.responseText)
-            let table=document.getElementById("tt")
-            post.forEach(post =>
-                {
-                    let row="<tr><td>" +post.id+ "</td> <td>" +post.body +"</tr></td>";
-                        
-                        table.innerHTML+=row;
+        document.getElementById("btt").addEventListener("click", function () {
+
+            let xx = new XMLHttpRequest()
+            xx.open("Get", "https://jsonplaceholder.typicode.com/posts", true);
+            xx.send()
+            xx.onload = function () {
+                if (xx.status === 200) {
+                    let post = JSON.parse(xx.responseText)
+                    let table = document.getElementById("tt")
+                    post.forEach(post => {
+                        let row = "<tr><td>" + post.id + "</td> <td>" + post.body + "</td></tr>";
+
+                        table.innerHTML += row;
+
+                    }
+                    )
 
                 }
-            )
-
+                else {
+                    alert("Table not found:" + xx.statusText);
+                }
             }
-        }
-        }
-        else
-        {
-          alert("Table not found:" +xx.statusText);   
-        }
-    })
+
+        })
 
 
 
